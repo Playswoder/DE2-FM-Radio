@@ -45,9 +45,10 @@ Projekt kombinuje znalosti z oblasti:
 1. Naklonujte repozitář:
    ```bash
    git clone https://github.com/Playswoder/de2-fm-radio.git
+---
 
-## Rozdělení práce 
-Rous: RDS \n
-Smetana: Enkodér \n
-Pochylý: LCD \n
-Maděránek: Plakát \n
+## Rozdělení práce
+Rous: RDS
+Smetana: Enkodér 
+Pochylý: LCD 
+Maděránek: Plakát 
