@@ -48,7 +48,7 @@ Projekt kombinuje znalosti z oblasti:
 ---
 
 ## Rozdělení práce
-Rous: RDS
-Smetana: Enkodér 
-Pochylý: LCD 
-Maděránek: Plakát 
+Rous: RDS  
+Smetana: Enkodér   
+Pochylý: LCD   
+Maděránek: Plakát   
