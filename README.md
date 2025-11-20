@@ -7,15 +7,17 @@ Vyvinuto jako součást laboratorních cvičení z předmětu *Digital Electroni
 
 ## 📌 Popis projektu
 Cílem projektu je ukázat praktické použití mikrokontroléru AVR pro:
-- příjem FM signálu pomocí externího modulu (např. TEA5767),
-- ovládání rádia přes I²C sběrnici,
-- zobrazení informací (frekvence, hlasitost, RDS) na LCD displeji,
-- ovládání pomocí tlačítek.
+- příjem FM signálu pomocí externího modulu (např. TEA5767)
+- manipulace rádia skrze I2C sběrnici
+- zobrazení informací (frekvence, hlasitost, RDS) na LCD displeji
+- ovládání za pomocí tlačítek
+- přepínáná mezi frekvencemi static
+- (možná implementace přesného ladění frekvence)
 
 Projekt kombinuje znalosti z oblasti:
-- práce s periferiemi (I²C, UART, GPIO),
-- programování v jazyce C pro AVR,
-- návrhu jednoduchého uživatelského rozhraní.
+- práce s periferiemi (I2C, UART, GPIO,...)
+- programování v jazyce C pro AVR
+- návrhu jednoduchého uživatelského rozhraní
 
 ---
 
@@ -38,6 +40,11 @@ Projekt kombinuje znalosti z oblasti:
   - `lcd.c/h` – ovládání LCD displeje
   - `i2c.c/h` – implementace I²C komunikace
   - `uart.c/h` – ladicí výstup přes sériovou linku
+  - `twi.c/h`
+  - `oled.c/h`
+  - `oled_rds.c/h`
+  - `freq_selector.c/h`
+  - `timer.c/h`
 
 ---
 
