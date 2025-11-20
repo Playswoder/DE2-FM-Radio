@@ -11,7 +11,7 @@ Cílem projektu je ukázat praktické použití mikrokontroléru AVR pro:
 - manipulace rádia skrze I2C sběrnici
 - zobrazení informací (frekvence, hlasitost, RDS) na LCD displeji
 - ovládání za pomocí tlačítek
-- přepínáná mezi frekvencemi static
+- přepínání mezi frekvencemi static
 - (možná implementace přesného ladění frekvence)
 
 Projekt kombinuje znalosti z oblasti:
