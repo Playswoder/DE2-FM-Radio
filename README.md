@@ -46,6 +46,7 @@ Projekt kombinuje znalosti z oblasti:
   - `freq_selector.c/h`
   - `timer.c/h`
 
+![Schematic](images/schematic.png)
 ---
 
 ## 🚀 Spuštění projektu
