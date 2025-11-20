@@ -1,0 +1,191 @@
+#include "OLED_RDS.h"
+#include "twi.h"
+#include "oled.h"
+#include <uart.h>
+#include "timer.h"
+#include "freqselector.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <stdlib.h>
+#include <uart.h>
+#include "timer.h"
+#include "freqselector.h"
+#include <util/delay.h>
+
+float fmStations[] = {89.5 ,99.2,92.6,93.1,100.2};
+static float lastFreq = 1;
+
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "twi.h"
+#include "uart.h"
+
+// Adresa Si4703
+#define SI4703_ADDR 0x10
+
+// Registry
+#define REG_POWERCFG    0x02
+#define REG_CHANNEL     0x03
+#define REG_STATUSRSSI  0x0A
+#define REG_RDSA        0x0C
+#define REG_RDSB        0x0D
+#define REG_RDSC        0x0E
+#define REG_RDSD        0x0F
+
+// Buffer pro RDS text
+static char rdsText[65] = {0};
+
+// --------------------------------------------------
+// Zápis registru Si4703 přes TWI
+// --------------------------------------------------
+void si4703_write_register(uint8_t reg, uint16_t value)
+{
+    twi_start();
+    twi_write((SI4703_ADDR << 1) | TWI_WRITE);
+    twi_write(reg);
+    twi_write(value >> 8);
+    twi_write(value & 0xFF);
+    twi_stop();
+}
+
+// --------------------------------------------------
+// Čtení registru Si4703 přes TWI
+// --------------------------------------------------
+uint16_t si4703_read_register(uint8_t reg)
+{
+    twi_start();
+    twi_write((SI4703_ADDR << 1) | TWI_WRITE);
+    twi_write(reg);
+    twi_stop();
+
+    twi_start();
+    twi_write((SI4703_ADDR << 1) | TWI_READ);
+    uint8_t msb = twi_read(TWI_ACK);
+    uint8_t lsb = twi_read(TWI_NACK);
+    twi_stop();
+
+    return ((uint16_t)msb << 8) | lsb;
+}
+
+// --------------------------------------------------
+// Inicializace Si4703
+// --------------------------------------------------
+void si4703_init(void)
+{
+    _delay_ms(100);
+
+    // Power up + enable crystal
+    si4703_write_register(REG_POWERCFG, 0x4001);
+    _delay_ms(500);
+
+    // Enable RDS
+    si4703_write_register(REG_POWERCFG, 0xC001);
+}
+
+// --------------------------------------------------
+// Ladění frekvence FM
+// --------------------------------------------------
+void si4703_tune(float freqMHz)
+{
+    uint16_t channel = (uint16_t)((freqMHz * 10) - 875);
+    uint16_t reg = 0x8000 | (channel << 6);
+
+    si4703_write_register(REG_CHANNEL, reg);
+
+    // Čekání na dokončení ladění
+    while (!(si4703_read_register(REG_STATUSRSSI) & 0x2000));
+}
+
+// --------------------------------------------------
+// Čtení RDS (RadioText group 2A)
+// --------------------------------------------------
+char* si4703_read_rds(void)
+{
+    uint16_t status = si4703_read_register(REG_STATUSRSSI);
+
+    if (!(status & 0x8000))
+        return; // RDS data nejsou připravena
+
+    uint16_t blockB = si4703_read_register(REG_RDSB);
+    uint16_t blockD = si4703_read_register(REG_RDSD);
+
+    uint8_t groupType = (blockB >> 12) & 0x0F;
+
+    if (groupType == 2)  // RDS Radiotext (2A)
+    {
+        uint8_t index = (blockB & 0x0F) * 4;
+        rdsText[index]     = (blockD >> 8) & 0xFF;
+        rdsText[index + 1] = blockD & 0xFF;
+        rdsText[index + 2] = 0;
+
+        uart_puts("RDS: ");
+        uart_puts(rdsText);
+        uart_puts("\r\n");
+    }
+    return rdsText;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main(void) {
+
+    // Initialize TWI and OLED
+    char uart_string[65];
+    uart_string[0] = 0;
+    uart_init(UART_BAUD_SELECT(9600, F_CPU));
+
+    twi_init();
+    freqselector_init(fmStations, 5, 4, 3);
+    oled_init(OLED_DISP_ON);
+
+     sei();
+
+    uart_puts("Inicializace Si4703...\r\n");
+    si4703_init();
+    si4703_tune(89.5);
+    
+   // uart_puts("Naladeno na 101.3 MHz. Cekam na RDS...\r\n");
+
+    // Example: RDS text and frequency
+    //oled_display_rds(uart_string, lastFreq);
+/* 
+    while (1)
+    {
+        freqselector_update();
+        float currentFreq = freqselector_get();
+        
+        lastFreq = currentFreq;
+        //uart_puts(lastFreq);
+        dtostrf(currentFreq, 4, 1, uart_string);
+        uart_puts(uart_string);
+        uart_puts(" MHz\r\n");
+        
+            char* txt =  si4703_read_rds();
+        //if (txt != NULL) {
+            //strncpy(uart_string, txt, 64);
+        //}
+       
+        _delay_ms(200);
+    }
+*/
+
+    return 0;
+}
