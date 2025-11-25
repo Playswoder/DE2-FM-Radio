@@ -22,7 +22,7 @@ int main(void)
   Si4703* radio = Si4703_create(PD4, PC4, PC5, 0);
   Si4703_powerUp(radio);
   char uart_string[10];
-  timer_init();
+  
   tim0_ovf_1ms();
   tim0_ovf_enable();
   uart_init(UART_BAUD_SELECT(9600, F_CPU));
