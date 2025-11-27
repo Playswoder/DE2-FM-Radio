@@ -2,6 +2,7 @@
 #define OLED_RDS_H
 
 // Public function declaration
-void oled_display_rds(const char *rds_text, int frequency);
+void oled_display_rds(const char *rds_text, float frequency);
 
 #endif
+
