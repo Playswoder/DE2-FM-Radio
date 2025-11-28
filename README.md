@@ -47,9 +47,9 @@ Komunikační sběrnice: I²C
 
 ## $\color{#75dad3}{\textsf{⚙️Software}}$
 
-  - ## $\color{Lightblue}{\textsf{Jazyk:}}$ C
-  - ## $\color{Lightblue}{\textsf{Kompilátor: }}$AVR-GCC
-  - ## $\color{Lightblue}{\textsf{Programování:}}$ AVRDUDE 
+  -  $\color{Lightblue}{\textsf{Jazyk:}}$ C
+  -  $\color{Lightblue}{\textsf{Kompilátor: }}$ AVR-GCC
+  -  $\color{Lightblue}{\textsf{Programování:}}$ AVRDUDE 
 
 
 
