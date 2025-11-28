@@ -3,7 +3,8 @@
 
 #include <string>
 
-void oled_display_rds(const std::string& rds_text, float frequency);
+void oled_display_rds(const std::string& rds_text, int frequency);
 
 #endif // OLED_RDS_H
+
 
