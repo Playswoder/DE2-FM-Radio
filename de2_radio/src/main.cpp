@@ -58,10 +58,13 @@ const int presetFreqs[] = {
    10700,  // Free Rádio, Kohoutovice, Hotel Myslivna
    10750   // Radio Proglas, Vysílač Hády
 };
-FreqSelector freqSelector(presetFreqs, 1, PD2, PD3);
+FreqSelector freqSelector(presetFreqs, 39, PD6, PD5); // 50 ms debounce
 extern Si4703 radio;
 OledDisplay oled;
 static int lastFreq = -1; 
+volatile uint32_t system_millis = 0;
+
+
 int main() {
     
     uart_init(UART_BAUD_SELECT(9600, F_CPU));

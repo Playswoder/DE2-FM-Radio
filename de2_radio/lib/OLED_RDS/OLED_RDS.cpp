@@ -9,7 +9,7 @@ OledDisplay::OledDisplay(uint8_t maxChars)
       rdsLength(0),
       maxVisibleChars(maxChars),
       scrollPos(0),
-      frequency(0)
+      frequency(0)   // still an int
 {
 }
 
@@ -28,6 +28,7 @@ void OledDisplay::setRdsText(const char* text)
     scrollPos = 0;
 }
 
+// Still integer input (hundredths of MHz)
 void OledDisplay::setFrequency(int freq)
 {
     frequency = freq;
@@ -44,8 +45,10 @@ void OledDisplay::render()
 {
     char freqBuf[20];
 
-    // Clear top: frequency
-    sprintf(freqBuf, "%.2f MHz", (double)frequency / (double)100);
+    // Print as float using integer math
+    int mhz = frequency / 100;       // integer part
+    int hundredths = frequency % 100; // fractional part
+    sprintf(freqBuf, "%d.%01d MHz", mhz, hundredths);
 
     oled_charMode(DOUBLESIZE);
     oled_gotoxy(0, 0);
@@ -56,15 +59,12 @@ void OledDisplay::render()
     oled_gotoxy(0, 4);
 
     if (rdsLength <= maxVisibleChars) {
-        // Fits on screen
         oled_puts(rdsText);
     } else {
-        // Build scrolling substring
         char buffer[32];
         for (int i = 0; i < maxVisibleChars; i++)
             buffer[i] = rdsText[(scrollPos + i) % rdsLength];
         buffer[maxVisibleChars] = '\0';
-
         oled_puts(buffer);
     }
 
