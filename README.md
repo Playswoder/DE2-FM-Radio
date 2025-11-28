@@ -53,7 +53,7 @@ Komunikační sběrnice: I²C
 
 
 
-- Struktura projektu:
+- $\color{Lightblue}{\textsf{Struktura projektu:}}$
   - `main.c` – hlavní program
   - `SI4703` - ovladač pro FM tuner
   - `i2c.c/h` a `twi.c/h` – I2C komunikace a knihovny
