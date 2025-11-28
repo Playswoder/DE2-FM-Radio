@@ -45,7 +45,7 @@ void OledDisplay::render()
     char freqBuf[20];
 
     // Clear top: frequency
-    sprintf(freqBuf, "%d MHz", (double)frequency / (double)100);
+    sprintf(freqBuf, "%.2f MHz", (double)frequency / (double)100);
 
     oled_charMode(DOUBLESIZE);
     oled_gotoxy(0, 0);
