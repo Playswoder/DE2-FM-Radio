@@ -9,7 +9,8 @@ OledDisplay::OledDisplay(uint8_t maxChars)
       rdsLength(0),
       maxVisibleChars(maxChars),
       scrollPos(0),
-      frequency(0)   // still an int
+      frequency(0),
+      volume(0) 
 {
 }
 
@@ -32,6 +33,11 @@ void OledDisplay::setRdsText(const char* text)
 void OledDisplay::setFrequency(int freq)
 {
     frequency = freq;
+}
+void OledDisplay::setVolume(int vol)
+{
+    if (vol > 15) vol = 15;   // Safety clamp
+    volume = vol;
 }
 
 void OledDisplay::update()
@@ -67,6 +73,12 @@ void OledDisplay::render()
         buffer[maxVisibleChars] = '\0';
         oled_puts(buffer);
     }
+    oled_charMode(NORMALSIZE);
+    oled_gotoxy(0, 6);   // Line 6 = bottom (adjust if needed)
+
+    char volBuf[12];
+    sprintf(volBuf, "VOL: %02d/15", volume);
+    oled_puts(volBuf);
 
 #ifdef GRAPHICMODE
     oled_display();

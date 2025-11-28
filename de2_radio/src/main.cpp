@@ -62,7 +62,11 @@ FreqSelector freqSelector(presetFreqs, 39, PD6, PD5); // 50 ms debounce
 extern Si4703 radio;
 OledDisplay oled;
 static int lastFreq = -1; 
-volatile uint32_t system_millis = 0;
+ 
+
+#define VOL_DOWN_PIN  PD7
+#define VOL_UP_PIN  PB0
+
 
 
 int main() {
@@ -95,9 +99,33 @@ int main() {
     
     oled.setRdsText("HELLO FROM RADIO STREAMING SERVICE");
     oled.setFrequency(radio.getChannel());
+    gpio_mode_input_pullup(&DDRD, VOL_DOWN_PIN);
+    gpio_mode_input_pullup(&DDRB, VOL_UP_PIN);
+
     while (1) {
-        
-        
+        // --- VOLUME UP ---
+        if (gpio_read(&PINB, VOL_UP_PIN) == 0) {
+            _delay_ms(30);
+            if (gpio_read(&PINB, VOL_UP_PIN) == 0) {
+                if (radio.getVolume() < 15) {
+                    radio.incVolume();
+                    oled.setVolume(radio.getVolume());
+                }
+                while (gpio_read(&PINB, VOL_UP_PIN) == 0);
+            }
+        }
+
+        // --- VOLUME DOWN ---
+        if (gpio_read(&PIND, VOL_DOWN_PIN) == 0) {
+            _delay_ms(30);
+            if (gpio_read(&PIND, VOL_DOWN_PIN) == 0) {
+                if (radio.getVolume() > 0) {
+                    radio.decVolume();
+                    oled.setVolume(radio.getVolume());
+                }
+                while (gpio_read(&PIND, VOL_DOWN_PIN) == 0);
+            }
+        }
         int freq = freqSelector.get();
         if (freq != lastFreq) {
             lastFreq = freq;

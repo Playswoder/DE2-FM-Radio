@@ -11,6 +11,7 @@ public:
 
     void setRdsText(const char* text);
     void setFrequency(int freq);
+    void setVolume(int vol);
 
     // Call periodically (e.g., every 100 ms)
     void update();
@@ -26,6 +27,7 @@ private:
 
     int scrollPos;
     int frequency;
+    int volume;
 };
 
 #endif
