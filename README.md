@@ -110,7 +110,7 @@ Níže je shrnutí toho, co dělá kompletní software ovladače tuneru SI4703.
 
 - Tím se realizuje kompletní obousměrná komunikace čipu.
 ---
-### $\color{#75dad3}{\textsf{Ladění frekvence}}$
+#### $\color{#75dad3}{\textsf{Ladění frekvence}}$
 
 Funkce si4703_setChannel(freq):
 
@@ -121,26 +121,26 @@ Funkce si4703_setChannel(freq):
 - umožňuje přesné a opakovatelné ladění FM pásma
 ---
 
-### $\color{#75dad3}{\textsf{Automatické ladění (SEEK)}}$
+#### $\color{#75dad3}{\textsf{Automatické ladění (SEEK)}}$
 
 Pomocí si4703_seekUp() / seekDown():
    
    - tuner vyhledává další dostupnou stanici a zastaví se na prvním dostatečně silném signálu
    - vrací buď nalezenou frekvenci, nebo informaci o neúspěchu
 ---
-### $\color{#75dad3}{\textsf{Hlasitost Síla signálu – RSSI}}$
+#### $\color{#75dad3}{\textsf{Hlasitost Síla signálu – RSSI}}$
 
 - Hlasitost je řízena pomocí bitů registru 0×05:
   
   - rozsah `0–15`
   - funkce: `si4703_setVolume()`, `si4703_getVolume()`
 ---
-### $\color{#75dad3}{\textsf{Síla signálu – RSSI}}$
+#### $\color{#75dad3}{\textsf{Síla signálu – RSSI}}$
 
 - Funkce si4703_getRSSI() čte aktuální kvalitu signálu (0–75).
 - Slouží pro indikaci, zda je naladěná stanice stabilní.
 ---
-### $\color{#75dad3}{\textsf{Dekódování vysílaných textů}}$
+#### $\color{#75dad3}{\textsf{Dekódování vysílaných textů}}$
 
 - Funkce si4703_readRDS() podporuje:
 
