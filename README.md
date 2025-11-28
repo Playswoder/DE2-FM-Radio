@@ -47,11 +47,10 @@ Komunikační sběrnice: I²C
 
 ## $\color{#75dad3}{\textsf{⚙️Software}}$
 
-$\color{#75dad3}{\textsf{
-  - Jazyk: C
-  - Kompilátor: AVR-GCC
-  - Programování: AVRDUDE
-- }}$
+  - ## $\color{Lightblue}{\textsf{Jazyk:}}$ C
+  - ## $\color{Lightblue}{\textsf{Kompilátor: }}$AVR-GCC
+  - ## $\color{Lightblue}{\textsf{Programování:}}$ AVRDUDE 
+
 
 
 - Struktura projektu:
