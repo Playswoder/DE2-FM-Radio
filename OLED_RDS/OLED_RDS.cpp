@@ -6,7 +6,7 @@
 #include <util/delay.h>
 
 // Zobrazení RDS textu a frekvence na OLED – pouze při změně
-void oled_display_rds(const std::string& rds_text, float frequency) {
+void oled_display_rds(const std::string& rds_text, int frequency) {
     static std::string last_rds_text;
     static float last_frequency = -1.0f; // sentinel hodnota
 
@@ -40,3 +40,4 @@ void oled_display_rds(const std::string& rds_text, float frequency) {
     oled_display();
 #endif
 }
+
