@@ -26,7 +26,8 @@ Kombinuje znalosti z oblastí:
 - práce s RF a audio signály
 
 
-![Thought Diagram of subroutines](images/schem.png)
+Thought Diagram of subroutines
+![schem](images/schem.png)
 ---
 
 ## $\color{#75dad3}{\textsf{💻Hardware}}$
