@@ -6,7 +6,27 @@ Implementace FM rádia s podporou RDS, LCD a I2C komunikace.
   - Součástí projektu je vlastní implementace ovladače pro FM tuner (SI4703/TEA5767) přes sběrnici I²C, zobrazování a dekódování RDS informací, ovládání pomocí tlačítek a řízení uživatelského rozhraní.
 
 ---
+## $\color{#75dad3}{\textsf{Rozdělení práce}}$
 
+- Rous - `implementace RDS, dekódování textu`
+
+- Smetana - `enkodér, ovládací prvky`
+
+- Pochylý - `LCD a zobrazení informací`
+
+- Maděránek - `plakát (GitHub), schémata, propojení v main.c`
+
+---
+### Table of contents
+
+* [Project objectives](#objectives)
+* [Hardware description](#hardware)
+* [Software](#soft)
+* [Summary](#sum)
+* [Video](#video)
+* [References](#references)
+
+<a name="objectives"></a>
 ## $\color{#75dad3}{\textsf{📌Popis projektu}}$
 
 $\color{Lightblue}{\textsf{Projekt demonstruje: }}$
@@ -30,6 +50,7 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 ![schem](de2_radio/images/schem.PNG) 
 ---
 
+<a name="hardware"></a>
 ## $\color{#75dad3}{\textsf{💻Hardware}}$
 
 Mikrokontrolér: ATmega16/ATmega328
@@ -44,7 +65,7 @@ Napájení: 5 V
 Komunikační sběrnice: I²C
 
 ---
-
+<a name="soft"></a>
 ## $\color{#75dad3}{\textsf{⚙️Software}}$
 
   -  $\color{Lightblue}{\textsf{Jazyk:}}$ C
@@ -127,18 +148,8 @@ Pomocí si4703_seekUp() / seekDown():
   - RadioText – textové zprávy `(až 64 znaků)`
   - Zpracovává RDS bloky typu 0A/0B a 2A a ukládá texty pro zobrazení.
 ---
-## $\color{#75dad3}{\textsf{Rozdělení práce}}$
 
-- Rous - `implementace RDS, dekódování textu`
-
-- Smetana - `enkodér, ovládací prvky`
-
-- Pochylý - `LCD a zobrazení informací`
-
-- Maděránek - `plakát (GitHub), schémata, propojení v main.c`
-
----
-
+<a name="sum"></a>
 ## $\color{#75dad3}{\textsf{Shrnutí}}$
 
 Projekt představuje kompletní implementaci FM rádia na AVR, zahrnující:
