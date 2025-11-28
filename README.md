@@ -26,7 +26,7 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 - práce s RF a audio signály
 
 
-Thought Diagram of subroutines
+- $\color{#75dad3}{\textsf{Thought Diagram of subroutines}}$
 ![schem](de2_radio/images/schem.PNG) 
 ---
 
