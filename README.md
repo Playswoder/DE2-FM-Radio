@@ -21,6 +21,7 @@ Implementace FM rádia s podporou RDS, LCD a I2C komunikace.
 
 * [Project objectives](#objectives)
 * [Hardware description](#hardware)
+* [FM Documentation](#doc)
 * [Software](#soft)
 * [Summary](#sum)
 * [Video](#video)
@@ -85,8 +86,8 @@ Komunikační sběrnice: I²C
   - `timer.c/h` – časovače
 
 ---
-
-## $\color{#75dad3}{\textsf{Ovladač FM tuneru SI4703 – Dokumentace 📚}}$
+<a name="doc"></a>
+## $\color{#75dad3}{\textsf{📚Ovladač FM tuneru SI4703 – Dokumentace }}$
 
 Níže je shrnutí toho, co dělá kompletní software ovladače tuneru SI4703.
 
