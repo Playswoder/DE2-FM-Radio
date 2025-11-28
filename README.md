@@ -101,7 +101,7 @@ Níže je shrnutí toho, co dělá kompletní software ovladače tuneru SI4703.
   - načtou se a inicializují, všechny registry (0×00–0×0F)
   - provede se základní konfigurace audia a RDS
 
- ### $\color{#75dad3}{\textsf{Čtení a zápis registrů}}$
+#### $\color{#75dad3}{\textsf{Čtení a zápis registrů}}$
 - Registery tuneru jsou zpracovány v poli si4703_regs[16].
   - si4703_readRegisters()
   → `načte všech 16 registrů tuneru.`
