@@ -547,17 +547,18 @@ bool Si4703::getST(void)
 // Read RDS
 //-----------------------------------------------------------------------------------------------------------------------------------
 // Čtení RDS textu (PS nebo RadioText)
-std::string Si4703::readRDS()
+// Čtení RDS textu (PS nebo RadioText) do bufferu
+// buffer musí být dostatečně velký (např. 65 znaků pro RadioText + '\0')
+void Si4703::readRDS(char* buffer, size_t bufSize)
 {
-    std::string rds_text;
-
     // Načti registry
     getShadow();
 
     // Zkontroluj, zda je RDS data ready
     if (shadow.reg.STATUSRSSI.bits.RDSR == 0) {
         // RDS není připraveno
-        return "";
+        if (bufSize > 0) buffer[0] = '\0';
+        return;
     }
 
     // RDS data jsou ve slovech 0x0C–0x0F (RDSA–RDSD)
@@ -568,15 +569,12 @@ std::string Si4703::readRDS()
 
     // Typ zprávy: podle group type v RDSB
     int groupType = (rdsB >> 12) & 0x0F; // bity 12–15
-    int version   = (rdsB >> 11) & 0x01; // verze A/B
 
     // Jednoduchý příklad: PS (Program Service name, group 0A/0B)
     if (groupType == 0) {
-        // Každý blok D obsahuje 2 znaky PS jména
         char c1 = (rdsD >> 8) & 0xFF;
         char c2 = rdsD & 0xFF;
-        rds_text.push_back(c1);
-        rds_text.push_back(c2);
+        snprintf(buffer, bufSize, "%c%c", c1, c2);
     }
     // RadioText (group 2A/2B)
     else if (groupType == 2) {
@@ -584,14 +582,14 @@ std::string Si4703::readRDS()
         char c2 = rdsC & 0xFF;
         char c3 = (rdsD >> 8) & 0xFF;
         char c4 = rdsD & 0xFF;
-        rds_text.push_back(c1);
-        rds_text.push_back(c2);
-        rds_text.push_back(c3);
-        rds_text.push_back(c4);
+        snprintf(buffer, bufSize, "%c%c%c%c", c1, c2, c3, c4);
     }
-
-    return rds_text;
+    else {
+        // Neznámý typ – vrátíme prázdný řetězec
+        if (bufSize > 0) buffer[0] = '\0';
+    }
 }
+
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
