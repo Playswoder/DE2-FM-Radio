@@ -27,7 +27,7 @@ Kombinuje znalosti z oblastí:
 
 
 Thought Diagram of subroutines
-![schem](images/schem.png)
+![schem](de2_radio/images/schem.PNG) 
 ---
 
 ## $\color{#75dad3}{\textsf{💻Hardware}}$
