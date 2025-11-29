@@ -10,9 +10,9 @@ Implementace FM rádia s podporou RDS, LCD a I2C komunikace.
 
 - Rous - `implementace RDS, dekódování textu`
 
-- Smetana - `enkodér, ovládací prvky`
+- Smetana - `ovládací prvky`
 
-- Pochylý - `OLED a zobrazení informací`
+- Pochylý - `zobrazení informací`
 
 - Maděránek - `plakát (GitHub), schémata, propojení v main.c`
 
