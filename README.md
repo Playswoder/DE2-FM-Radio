@@ -12,7 +12,7 @@ Implementace FM rádia s podporou RDS, LCD a I2C komunikace.
 
 - Smetana - `enkodér, ovládací prvky`
 
-- Pochylý - `LCD a zobrazení informací`
+- Pochylý - `OLED a zobrazení informací`
 
 - Maděránek - `plakát (GitHub), schémata, propojení v main.c`
 
