@@ -31,9 +31,9 @@ Implementace FM rádia s podporou RDS, LCD a I2C komunikace.
 ## $\color{#75dad3}{\textsf{📌Popis projektu}}$
 
 $\color{Lightblue}{\textsf{Projekt demonstruje: }}$
-- příjem FM signálu pomocí modulu SI4703 nebo TEA5767
-- komunikaci s tunerem přes I²C (TWI)
-- zobrazení informací na LCD/OLED displeji
+- příjem FM signálu pomocí modulu SI4703
+- komunikaci s tunerem přes I2C (TWI)
+- zobrazení informací na OLED displeji
 - dekódování RDS (Radio Data System)
 - ovládání rádia pomocí tlačítek/enkodéru
 - přesné a automatické ladění frekvence
