@@ -650,3 +650,4 @@ int Si4703::getRSSI(void)
   getShadow();                              // Read the current register set
   return(shadow.reg.STATUSRSSI.bits.RSSI);  // Return RSSI value
 }
+

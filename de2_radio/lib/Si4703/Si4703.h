@@ -141,7 +141,7 @@ class Si4703
 	int		incVolume(void);		// Increment Volume
 	int		decVolume(void);		// Decrement Volume
 
-	void	readRDS(void);			// Reads RDS, message should be at least 9 chars, result will be null terminated.
+	void	readRDS(char* buffer, long timeout);			// Reads RDS, message should be at least 9 chars, result will be null terminated.
 
 	void	writeGPIO(int GPIO, 	// Write to GPIO1,GPIO2, and GPIO3
 					  int val); 	// values can be GPIO_Z, GPIO_I, GPIO_Low, and GPIO_High

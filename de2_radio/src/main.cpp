@@ -18,7 +18,7 @@ extern "C"{
 
 const int presetFreqs[] = {
     8760,  // Rádio Impuls, Vysílač Kojál
-    8830,  // Radio Kiss (JihM), Vysílač Hády
+    8820,  // Radio Kiss (JihM), Vysílač Hády
     8890,  // Rádio Jih, Hodonín, Babí lom
     8950,  // ČRo Radiožurnál, Husovice, ul. Míčkova 929/2
     8990,  // Radio Wien, Rakousko, Vídeň 1 - Kahlenberg
@@ -89,8 +89,12 @@ int main() {
     uart_puts("Si4703 Initialized.\n");
 
     // Set frequency to 101.1 MHz
-    radio.setChannel(10110); // Frequency in 0.1 MHz steps
-    radio.setMute(false);
+    radio.setChannel(10700); // Frequency in 0.1 MHz steps
+    radio.powerDown();
+    radio.powerUp();
+    radio.start();
+
+    radio.setMute(true);
     //radio.setMute(false); // Unmute audio
     //radio.seekUp(); // Seek to the next available station
     radio.setVolume(15); // Set volume to a medium level
@@ -138,6 +142,7 @@ int main() {
             oled.setFrequency(freq);
         }
         oled.update();
+
     }
 
     return 0;
