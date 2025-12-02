@@ -93,20 +93,32 @@ void SI470X::getStatus()
 
 void SI470X::waitAndFinishTune()
 {
+    uint16_t timeOut = 0;
+
+    // 1. Čekání na dokončení ladění (STC bit musí být 1)
     do
     {
         getStatus();
         _delay_ms(5);
+        timeOut++;
+        // Pokud to trvá déle než cca 1 sekundu (200 * 5ms), ukonči smyčku
+        if (timeOut > 200) break; 
     } while (reg0a->refined.STC == 0);
 
+    // Načíst aktuální stav, vyčistit bity pro ladění
     getAllRegisters();
     reg02->refined.SEEK = 0;
     reg03->refined.TUNE = 0;
     setAllRegisters();
+
+    // 2. Čekání na potvrzení vyčištění (STC bit musí spadnout na 0)
+    timeOut = 0;
     do
     {
         getStatus();
         _delay_ms(5);
+        timeOut++;
+        if (timeOut > 200) break; // Timeout ochrana
     } while (reg0a->refined.STC != 0);
 }
 
