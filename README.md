@@ -8,13 +8,13 @@ Implementace FM rádia s podporou RDS, LCD a I2C komunikace.
 ---
 ## $\color{#75dad3}{\textsf{Rozdělení práce}}$
 
-- Rous - `implementace RDS, dekódování textu`
+- Rous - ` Schémata`
 
-- Smetana - `ovládací prvky`
+- Smetana - `Ovládací prvky`
 
-- Pochylý - `zobrazení informací`
+- Pochylý - `Oled`
 
-- Maděránek - `plakát (GitHub), schémata, dokumentace`
+- Maděránek - `plakát (GitHub), dokumentace`
 
 ---
 ### Table of contents
