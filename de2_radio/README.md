@@ -17,23 +17,23 @@ Program používá:
 - avr/io.h, avr/interrupt.h, util/delay.h
     - → přístup k registrům, přerušením a časovým funkcím.
 
-freqselector.h
+- freqselector.h
     - → obsluha rotačního enkodéru a výběr frekvence.
 
-timer.h, gpio.h
+- timer.h, gpio.h
     - → pomocné funkce GPIO a časovačů.
 
-OLED_RDS.h, oled.h
+- OLED_RDS.h, oled.h
     - → displej + RDS text.
 
-Si4703.h
+- Si4703.h
     - → ovladač FM tuneru Si4703.
 
-uart.h
+- uart.h
     - → sériová komunikace pro debug.
 
 📡 3. Pole předvolených FM frekvencí
-const int presetFreqs[] = { ... };
+- const int presetFreqs[] = { ... };
 
 
 Obsahuje 39 frekvencí v jednotkách 0.1 MHz (např. 10130 = 101.3 MHz).
@@ -74,13 +74,13 @@ oled_init(OLED_DISP_ON);
 sei();
 
 
-inicializace UART
+- inicializace UART
 
-zapnutí OLED displeje
+- zapnutí OLED displeje
 
-povolení přerušení
+- povolení přerušení
 
-Debug výpisy informují o průběhu inicializace.
+- Debug výpisy informují o průběhu inicializace.
 
 Inicializace tuneru Si4703
 radio.start();
@@ -94,20 +94,20 @@ radio.setVolume(15);
 
 Program tuner:
 
-spustí
+- spustí
 
-nastaví kanál
+- nastaví kanál
 
-vypne/zapne napájení (pro reset)
+- vypne/zapne napájení (pro reset)
 
-zapne znovu
+- zapne znovu
 
-inicializuje hlasitost
+- inicializuje hlasitost
 
-zapne ztlumení (mute)
+- zapne ztlumení (mute)
 
 Aktivace výběru frekvencí
-FreqSelector::attach(&freqSelector);
+- FreqSelector::attach(&freqSelector);
 
 
 Rotační enkodér je nyní aktivní a může měnit frekvence.
@@ -117,7 +117,7 @@ oled.setRdsText("HELLO FROM RADIO STREAMING SERVICE");
 oled.setFrequency(radio.getChannel());
 
 
-Zobrazí uvítací text a aktuální frekvenci.
+- Zobrazí uvítací text a aktuální frekvenci.
 
 Nastavení pinů tlačítek
 gpio_mode_input_pullup(&DDRD, VOL_DOWN_PIN);
@@ -139,13 +139,13 @@ if (gpio_read(&PINB, VOL_UP_PIN) == 0) {
 
 Tlačítko je stisknuté → logická 0
 
-Proběhne 30 ms debounce
+- Proběhne 30 ms debounce
 
-Pokud není hlasitost na maximu (15), zvýší se
+- Pokud není hlasitost na maximu (15), zvýší se
 
-OLED displej se aktualizuje
+- OLED displej se aktualizuje
 
-Program čeká, dokud uživatel tlačítko nepustí
+- Program čeká, dokud uživatel tlačítko nepustí
 
 7.2 Ovládání hlasitosti — VOLUME DOWN
 
