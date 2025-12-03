@@ -47,8 +47,7 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 - práce s RF a audio signály
 
 
-## <ins>$\color{#75dad3}{\textsf{Thought Diagram of subroutines}}$ </ins>
-
+<ins>$\color{#75dad3}{\textsf{Schéma/diagram kódu}}$ </ins>
 ![n](de2_radio/images/n.png) 
 ---
 
@@ -65,14 +64,21 @@ FM tuner:
 Napájení: 5 V
 
 Komunikační sběrnice: I²C
-
 ---
+<ins>$\color{#75dad3}{\textsf{Zapojení obvodu}}$ </ins>
+![n](de2_radio/images/20251202_133030.jpg) 
+
+<ins>$\color{#75dad3}{\textsf{Displej}}$ </ins>
+![n](de2_radio/images/20251202_133052.jpg) 
+---
+
 <a name="soft"></a>
 ## $\color{#75dad3}{\textsf{⚙️Software}}$
 
   -  $\color{Lightblue}{\textsf{Jazyk:}}$ C
   -  $\color{Lightblue}{\textsf{Kompilátor: }}$ AVR-GCC
   -  $\color{Lightblue}{\textsf{Programování:}}$ AVRDUDE 
+
 
 
 - $\color{Lightblue}{\textsf{Struktura projektu:}}$
