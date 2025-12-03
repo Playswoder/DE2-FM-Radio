@@ -82,16 +82,16 @@ sei();
 - zapnutí OLED displeje
 - povolení přerušení
 - Debug výpisy informují o průběhu inicializace.
----
 
-Inicializace tuneru Si4703
-radio.start();
-radio.setChannel(10700);
-radio.powerDown();
-radio.powerUp();
-radio.start();
-radio.setMute(true);
-radio.setVolume(15);
+
+- Inicializace tuneru Si4703
+-     radio.start();
+-     radio.setChannel(10700);
+-     radio.powerDown();
+-     radio.powerUp();
+-     radio.start();
+-     radio.setMute(true);
+-      radio.setVolume(15);
 
 ---
 Program tuner:
@@ -103,86 +103,81 @@ Program tuner:
 - inicializuje hlasitost
 - zapne ztlumení (mute)
 
-Aktivace výběru frekvencí
-- FreqSelector::attach(&freqSelector);
+---
+- Aktivace výběru frekvencí
+-     FreqSelector::attach(&freqSelector);
 
 
-Rotační enkodér je nyní aktivní a může měnit frekvence.
+- Rotační enkodér je nyní aktivní a může měnit frekvence.
 
-Nastavení OLED
-oled.setRdsText("HELLO FROM RADIO STREAMING SERVICE");
-oled.setFrequency(radio.getChannel());
+---
 
+- Nastavení OLED
+-     oled.setRdsText("HELLO FROM RADIO STREAMING SERVICE");
+-     oled.setFrequency(radio.getChannel());
 
-- Zobrazí uvítací text a aktuální frekvenci.
+    - Zobrazí uvítací text a aktuální frekvenci.
 
-Nastavení pinů tlačítek
-gpio_mode_input_pullup(&DDRD, VOL_DOWN_PIN);
-gpio_mode_input_pullup(&DDRB, VOL_UP_PIN);
+- Nastavení pinů tlačítek
+-     gpio_mode_input_pullup(&DDRD, VOL_DOWN_PIN);
+-     gpio_mode_input_pullup(&DDRB, VOL_UP_PIN);
 
+    - Oba piny se nastaví jako vstupy s pull-up rezistorem.
 
-Oba piny se nastaví jako vstupy s pull-up rezistorem.
-
+---
 🔁 7. Hlavní smyčka programu
 
 Program stále dokola:
 
-7.1 Ovládání hlasitosti — VOLUME UP
-if (gpio_read(&PINB, VOL_UP_PIN) == 0) {
-    _delay_ms(30);
-    ...
+- Ovládání hlasitosti — VOLUME UP
+-     if (gpio_read(&PINB, VOL_UP_PIN) == 0) {
+-     _delay_ms(30);
+-        ...
 }
 
-
+---
 Tlačítko je stisknuté → logická 0
 
 - Proběhne 30 ms debounce
-
 - Pokud není hlasitost na maximu (15), zvýší se
-
 - OLED displej se aktualizuje
-
 - Program čeká, dokud uživatel tlačítko nepustí
 
-7.2 Ovládání hlasitosti — VOLUME DOWN
+---
+Ovládání hlasitosti — VOLUME DOWN
 
-Stejná logika jako u volume UP, ale snižuje hlasitost směrem k 0.
+- Stejná logika jako u volume UP, ale snižuje hlasitost směrem k 0.
 
-7.3 Čtení enkodéru (změna stanice)
-int freq = freqSelector.get();
-if (freq != lastFreq) {
-    lastFreq = freq;
-    radio.setChannel(freq);
-    ...
+    - Čtení enkodéru (změna stanice)
+-     int freq = freqSelector.get();
+-     if (freq != lastFreq) {
+-         lastFreq = freq;
+-         radio.setChannel(freq);
+-         ...
 }
 
-
+---
 Pokud uživatel otočí enkodérem:
 
-získá se nová frekvence z předvoleného seznamu
+- získá se nová frekvence z předvoleného seznamu
+- uloží se jako poslední frekvence
+- naladí se tuner pomocí setChannel()
+- vypíše se zpráva přes UART
+- OLED zobrazí novou frekvenci
 
-uloží se jako poslední frekvence
-
-naladí se tuner pomocí setChannel()
-
-vypíše se zpráva přes UART
-
-OLED zobrazí novou frekvenci
-
-7.4 Aktualizace OLED displeje
-oled.update();
+---
+- Aktualizace OLED displeje
+-     oled.update();
 
 
-Zajistí překreslení:
+- Zajistí překreslení:
 
-frekvence
+    - frekvence
+    - hlasitosti
+    - RDS textu
 
-hlasitosti
+---
+8. Konec - Návratová hodnota
+-     return 0;
+- Nikdy ale ve skutešnosti nekončí
 
-RDS textu
-
-✔️ 8. Návratová hodnota
-return 0;
-
-
-– zde spíše formální, protože hlavní smyčka nikdy nekončí.
