@@ -48,7 +48,7 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 
 
 <ins>$\color{#75dad3}{\textsf{Thought Diagram of subroutines}}$ </ins>
-![schem](de2_radio/images/n.PNG) 
+![n](de2_radio/images/n.PNG) 
 ---
 
 <a name="hardware"></a>
