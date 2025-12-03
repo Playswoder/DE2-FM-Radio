@@ -47,7 +47,7 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 - práce s RF a audio signály
 
 
-<ins>$\color{#75dad3}{\textsf{Thought Diagram of subroutines}}$ </ins>
+## <ins>$\color{#75dad3}{\textsf{Thought Diagram of subroutines}}$ </ins>
 
 ![n](de2_radio/images/n.png) 
 ---
@@ -73,7 +73,6 @@ Komunikační sběrnice: I²C
   -  $\color{Lightblue}{\textsf{Jazyk:}}$ C
   -  $\color{Lightblue}{\textsf{Kompilátor: }}$ AVR-GCC
   -  $\color{Lightblue}{\textsf{Programování:}}$ AVRDUDE 
-
 
 
 - $\color{Lightblue}{\textsf{Struktura projektu:}}$
