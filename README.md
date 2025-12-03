@@ -48,7 +48,9 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 
 
 <ins>$\color{#75dad3}{\textsf{Schéma/diagram kódu}}$ </ins>
+
 ![n](de2_radio/images/n.png) 
+
 ---
 
 <a name="hardware"></a>
