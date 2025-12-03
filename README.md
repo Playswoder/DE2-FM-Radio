@@ -165,12 +165,11 @@ Projekt představuje kompletní implementaci FM rádia na AVR, zahrnující:
 <a name="ref"></a>
 ## $\color{#75dad3}{\textsf{Reference a zdroje}}$
 
-Projekt představuje kompletní implementaci FM rádia na AVR, zahrnující:
+Při tvorbě projektu byly využity a jako inspirace posloužily následující zdroje.
 
-  - Ovladač FM tuneru SI4703 přes I²C
-  - Automatické ladění, nastavení hlasitosti a měření signálu
-  - Zobrazení informací na LCD/OLED
-  - Podporu RDS (název stanice & text)
-  - Ovládání pomocí tlačítek nebo enkodéru
-  - Modulární strukturu zdrojového kódu
+IEEE styl:
+- M. Alwahash, “Si4703 Radio Library,” 2021. [Software]. GitHub repository.
+
+  - Projekt převzal původní knihovnu a hlavní zdrojový soubor, které byly upraveny a přepracovány do jazyka C podle potřeb projektu.
+
 
