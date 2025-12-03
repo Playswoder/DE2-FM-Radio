@@ -168,7 +168,7 @@ Projekt představuje kompletní implementaci FM rádia na AVR, zahrnující:
 Při tvorbě projektu byly využity a jako inspirace posloužily následující zdroje.
 
 IEEE styl:
-- M. Alwahash, “Si4703 Radio Library,” 2021. [Software]. GitHub repository.
+- M. Alwahash, “Si4703 Radio Library,” 2021. [Software]. GitHub repository. https://github.com/mkhuthir/Si4703/tree/master
 
   - Projekt převzal původní knihovnu a hlavní zdrojový soubor, které byly upraveny a přepracovány do jazyka C podle potřeb projektu.
 
