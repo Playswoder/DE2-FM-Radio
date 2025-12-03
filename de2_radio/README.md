@@ -1,4 +1,4 @@
-#  $\color{Aquamarine}{\textsf{$Dokumentace ke kódu FM přijímače se Si4703}} 
+#  $\color{Aquamarine}{\textsf{Dokumentace ke kódu FM přijímače se Si4703}}$
 
 Tento dokument popisuje funkci programu, který běží na AVR mikrokontroléru (16 MHz) a ovládá FM přijímač Si4703, OLED displej a čte vstupy z rotačního enkodéru a dvou tlačítek pro ovládání hlasitosti.
 
