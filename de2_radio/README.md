@@ -21,13 +21,13 @@ freqselector.h
     - → obsluha rotačního enkodéru a výběr frekvence.
 
 timer.h, gpio.h
-    -  → pomocné funkce GPIO a časovačů.
+    - → pomocné funkce GPIO a časovačů.
 
 OLED_RDS.h, oled.h
-    -  → displej + RDS text.
+    - → displej + RDS text.
 
 Si4703.h
-    -  → ovladač FM tuneru Si4703.
+    - → ovladač FM tuneru Si4703.
 
 uart.h
     - → sériová komunikace pro debug.
