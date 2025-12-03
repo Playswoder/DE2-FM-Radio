@@ -162,3 +162,15 @@ Projekt představuje kompletní implementaci FM rádia na AVR, zahrnující:
   - Ovládání pomocí tlačítek nebo enkodéru
   - Modulární strukturu zdrojového kódu
 
+<a name="ref"></a>
+## $\color{#75dad3}{\textsf{Reference a zdroje}}$
+
+Projekt představuje kompletní implementaci FM rádia na AVR, zahrnující:
+
+  - Ovladač FM tuneru SI4703 přes I²C
+  - Automatické ladění, nastavení hlasitosti a měření signálu
+  - Zobrazení informací na LCD/OLED
+  - Podporu RDS (název stanice & text)
+  - Ovládání pomocí tlačítek nebo enkodéru
+  - Modulární strukturu zdrojového kódu
+
