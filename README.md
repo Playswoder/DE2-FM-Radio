@@ -172,4 +172,5 @@ IEEE styl:
 
   - Projekt převzal původní knihovnu a hlavní zdrojový soubor, které byly upraveny a přepracovány do jazyka C podle potřeb projektu.
 
+- a také části kódů byli využity z pc cvičení a dosazeny zde, dle potřeb: https://github.com/tomas-fryza/avr-labs
 
