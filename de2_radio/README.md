@@ -15,22 +15,22 @@ Zajišťuje, že knihovny jako _delay_ms() budou používat správnou taktovací
 Program používá:
 
 - avr/io.h, avr/interrupt.h, util/delay.h
-    → přístup k registrům, přerušením a časovým funkcím.
+-      → přístup k registrům, přerušením a časovým funkcím.
 
 freqselector.h
-    → obsluha rotačního enkodéru a výběr frekvence.
+-      → obsluha rotačního enkodéru a výběr frekvence.
 
 timer.h, gpio.h
-    → pomocné funkce GPIO a časovačů.
+-      → pomocné funkce GPIO a časovačů.
 
 OLED_RDS.h, oled.h
-    → displej + RDS text.
+-     → displej + RDS text.
 
 Si4703.h
-    → ovladač FM tuneru Si4703.
+-     → ovladač FM tuneru Si4703.
 
 uart.h
-    → sériová komunikace pro debug.
+-     → sériová komunikace pro debug.
 
 📡 3. Pole předvolených FM frekvencí
 const int presetFreqs[] = { ... };
