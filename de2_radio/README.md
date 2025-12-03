@@ -39,6 +39,7 @@ Program používá:
 Obsahuje 39 frekvencí v jednotkách 0.1 MHz (např. 10130 = 101.3 MHz).
 Používá je rotační enkodér pro přepínání stanic.
 
+
 🧩 4. Inicializace hlavních objektů
 FreqSelector freqSelector(presetFreqs, 39, PD6, PD5);
 extern Si4703 radio;
