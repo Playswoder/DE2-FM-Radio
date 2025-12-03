@@ -162,6 +162,13 @@ Projekt představuje kompletní implementaci FM rádia na AVR, zahrnující:
   - Ovládání pomocí tlačítek nebo enkodéru
   - Modulární strukturu zdrojového kódu
 
+
+<a name="video"></a>
+## $\color{#75dad3}{\textsf{Video}}$
+
+https://github.com/user-attachments/assets/925a0f67-ea11-43b9-8a9e-46d84792704c
+
+
 <a name="ref"></a>
 ## $\color{#75dad3}{\textsf{Reference a zdroje}}$
 
