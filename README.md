@@ -46,7 +46,7 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 - návrh embedded rozhraní
 - práce s RF a audio signály
 
-
+ 
 <ins>$\color{#75dad3}{\textsf{Schéma/diagram kódu}}$ </ins>
 
 <img src="https://github.com/Playswoder/DE2-FM-Radio/blob/main/de2_radio/images/n.png" width="460" height="740" />
