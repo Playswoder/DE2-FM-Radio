@@ -47,9 +47,15 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 - práce s RF a audio signály
 
  
-<ins>$\color{#75dad3}{\textsf{Schéma/diagram kódu}}$ </ins>
+### <ins>$\color{#75dad3}{\textsf{Schéma zapojení}}$ </ins>
 
 <img src="https://github.com/Playswoder/DE2-FM-Radio/blob/main/de2_radio/images/n.png" width="460" height="740" />
+
+---
+
+### <ins>$\color{#75dad3}{\textsf{Diagram kódu}}$ </ins>
+
+<img src="https://github.com/Playswoder/DE2-FM-Radio/blob/main/de2_radio/images/diag.png" width="460" height="740" />
 
 ---
 
