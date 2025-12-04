@@ -14,7 +14,7 @@ Implementace FM rádia s podporou RDS, LCD a I2C komunikace.
 
 - Pochylý - `Zobrazení vvýstupů`
 
-- Maděránek - `plakát (GitHub), dokumentace`
+- Maděránek - `plakát (GitHub), dokumentace, propojení`
 
 ---
 ### Table of contents
