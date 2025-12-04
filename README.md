@@ -55,7 +55,7 @@ $\color{Lightblue}{\textsf{Kombinuje znalosti z oblastí: }}$
 
 ### <ins>$\color{#75dad3}{\textsf{Diagram kódu}}$ </ins>
 
-<img src="https://github.com/Playswoder/DE2-FM-Radio/blob/main/de2_radio/images/diag.png" width="460" height="740" />
+<img src="https://github.com/Playswoder/DE2-FM-Radio/blob/main/de2_radio/images/diag.png" width="560" height="840" />
 
 ---
 
