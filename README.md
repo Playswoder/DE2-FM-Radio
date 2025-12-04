@@ -82,7 +82,7 @@ Komunikační sběrnice: I²C
 
 <ins>$\color{#75dad3}{\textsf{Displej}}$ </ins>
 ---
-<img src="https://github.com/Playswoder/DE2-FM-Radio/blob/main/de2_radio/images/20251202_133052.jpg" width="460" height="640" />
+<img src="https://github.com/Playswoder/DE2-FM-Radio/blob/main/de2_radio/images/20251202_133052.jpg" width="400" height="400" />
 
 ---
 
